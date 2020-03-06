@@ -4,7 +4,7 @@ Schneider Galaxy 5000 UPS Monitor
 
 ## Description
 
-Purpose of this Python application is to provide enhanced monitoring of Schneider Galaxy 5000 UPS battery charge and remaining backup time. Currently, SNMP monitor shipped with device does not have a capability of reporting drift in battery change in increments of 10%. This monitor will kick off an email every time if drift or increment in battery charge is more than 10% as well as if remaining backup time reaches 30 minutes threshold. 
+Purpose of this Python application is to provide enhanced monitoring of Schneider Galaxy 5000 UPS battery charge and remaining backup time. Currently, SNMP monitor shipped with device does not have a capability of reporting drift of battery change in increments of 10%. This monitor will kick off an email every time drift or increment in battery charge is more than 10% as well as remaining backup time reaches 30 minutes of threshold. 
 
 <!-- ### Prerequisites
 
