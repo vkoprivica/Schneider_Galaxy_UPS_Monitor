@@ -5,8 +5,8 @@ Purpose of this Python application is to provide enhanced monitoring of Schneide
 
 ### Application structure
 
-ups_monitor.py – Python file contains functions necessary to parse data and obtain required parameters.  
-ups_program.py – Python file contains monitoring intelligence, error handing, logging and notification features.  
+ups_monitor_api.py – Python file contains functions necessary to parse data and obtain required parameters.  
+ups_monitor_app.py – Python file contains monitoring intelligence, error handing, logging and notification features.  
 
 
 ### Instructions

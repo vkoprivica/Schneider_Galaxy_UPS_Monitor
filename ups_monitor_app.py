@@ -1,8 +1,8 @@
-import ups_monitor
-from ups_monitor import get_ups_reading
-from ups_monitor import get_battery_charge
-from ups_monitor import get_remaining_backup_time
-from ups_monitor import send_email
+import ups_monitor_api
+from ups_monitor_api import get_ups_reading
+from ups_monitor_api import get_battery_charge
+from ups_monitor_api import get_remaining_backup_time
+from ups_monitor_api import send_email
 from datetime import datetime, timedelta
 import time
 from threading import Timer
@@ -42,7 +42,7 @@ def main():
 
         try:
             try:
-                battery_charge = ups_monitor.get_battery_charge(
+                battery_charge = ups_monitor_api.get_battery_charge(
                     get_ups_reading
                 )  # Read battery charge by calling function.
                 # battery_charge = random.randint(65, 100)
@@ -52,7 +52,7 @@ def main():
                 app_log.warn(f"{battery_charge}")  # Log if calling function fails.
 
             try:
-                remaining_backup_time = ups_monitor.get_remaining_backup_time(
+                remaining_backup_time = ups_monitor_api.get_remaining_backup_time(
                     get_ups_reading
                 )  # Read remaining backup time by calling function.
                 # print(f"Remaining backup time: {remaining_backup_time}")
@@ -67,7 +67,7 @@ def main():
                 counter = 0
 
                 if counter_100 == 1:
-                    ups_monitor.send_email(
+                    ups_monitor_api.send_email(
                         f"{ups_hostname} - Battery at 100%", email_body
                     )
                     # print(f"Counter_100 1: {counter_100}")
@@ -97,7 +97,7 @@ def main():
                     counter_10 = 0
 
                     if counter_90 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 3: {counter_100}")
@@ -118,7 +118,7 @@ def main():
                     counter_10 = 0
 
                     if counter_80 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 5: {counter_100}")
@@ -139,7 +139,7 @@ def main():
                     counter_10 = 0
 
                     if counter_70 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 7: {counter_100}")
@@ -160,7 +160,7 @@ def main():
                     counter_10 = 0
 
                     if counter_60 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 9: {counter_100}")
@@ -181,7 +181,7 @@ def main():
                     counter_10 = 0
 
                     if counter_50 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 11: {counter_100}")
@@ -202,7 +202,7 @@ def main():
                     counter_10 = 0
 
                     if counter_40 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 13: {counter_100}")
@@ -223,7 +223,7 @@ def main():
                     counter_10 = 0
 
                     if counter_30 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 15: {counter_100}")
@@ -244,7 +244,7 @@ def main():
                     counter_10 = 0
 
                     if counter_20 == 1:
-                        ups_monitor.send_email(
+                        ups_monitor_api.send_email(
                             f"{ups_hostname} - {notification}", email_body
                         )
                         # print(f"Counter_100 17: {counter_100}")
@@ -259,7 +259,7 @@ def main():
             if thirty_min > remaining_backup_time:
                 counter_1 += 1
                 if counter == 1:
-                    ups_monitor.send_email(
+                    ups_monitor_api.send_email(
                         "UPS Warning", f"Remaining Time: {remaining_backup_time}"
                     )
 
@@ -270,7 +270,7 @@ def main():
             # print("starting timer")
             if counter_email == 1:
                 try:
-                    ups_monitor.send_email(
+                    ups_monitor_api.send_email(
                         "UPS-MONITOR-APP", "Parsing Failure! Check log for more info."
                     )
                     app_log.warn("ERROR: Parsing Failure.")
